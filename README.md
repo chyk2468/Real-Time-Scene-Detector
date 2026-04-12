@@ -32,7 +32,7 @@ AI Real-time Scene Vision is a modern, high-performance computer vision applicat
 
 ### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/chyk2468/Real-Time-Scene-Detector.git
 cd project
 ```
 
