@@ -1,43 +1,75 @@
 # Real-Time Scene Vision
 
-A Streamlit computer-vision app that detects objects in webcam frames or uploaded images and estimates a scene category from the objects detected.
+**Detect objects in camera frames or images and estimate the scene category.**
 
-**Stack:** Python, Streamlit, YOLOv8, PyTorch/ONNX, OpenCV, Pillow
+[![GitHub](https://img.shields.io/badge/GitHub-Source-24292f?logo=github)](https://github.com/chyk2468/Real-Time-Scene-Detector)
 
-![Real-Time Scene Vision workflow](docs/readme-architecture.svg)
+## 1. Project Title & Tagline
 
-## Features
+Detect objects in camera frames or images and estimate the scene category.
 
-- Live webcam stream mode
-- Upload and snapshot image analysis
-- Adjustable object confidence threshold
-- Object counts and scene estimate
-- Dark interface for live monitoring
+## 2. Problem Statement
 
-## Workflow
+A raw camera feed can be difficult to interpret quickly. This project applies object detection and uses detected labels to estimate the scene context.
 
-1. Select a webcam or image input.
-2. Prepare frames with OpenCV/Pillow.
-3. Run the detector and filter detections by confidence.
-4. Use detected labels to estimate a scene and display object statistics.
+## 3. Project Preview
 
-## Run locally
+Add a screenshot or short GIF of the live interface with a representative input and result.
+
+[Open interactive architecture](architecture.html)
+
+## 4. Overview
+
+The app takes user input, runs the configured processing pipeline, and presents the result in the interface. The workflow below shows the major stages.
+
+## 5. Key Features
+
+- Live webcam mode.
+- Upload and analyse a still image.
+- Adjust the detection confidence threshold.
+- Display object detections and a scene estimate.
+
+## 6. Architecture / Workflow
+
+![Animated Real-Time Scene Vision workflow](docs/animated-workflow.svg)
+
+Open the [interactive architecture explorer](architecture.html) to select a stage and inspect its role.
+
+## 7. Tech Stack
+
+Python, Streamlit, YOLOv8, PyTorch or ONNX, OpenCV, Pillow
+
+## 8. Installation & Setup
 
 ```bash
 git clone https://github.com/chyk2468/Real-Time-Scene-Detector.git
 cd Real-Time-Scene-Detector
 python -m venv .venv
-```
-
-Activate the environment and install dependencies:
-
-```bash
 pip install -r requirements.txt
-streamlit run app.py
 ```
 
-The repository includes model files `model.pt` and `model.onnx`. Check `model.py` for the selected backend and expected model path.
+## 9. Usage
 
-## Limitations
+Run `streamlit run app.py`, select webcam or upload mode, and inspect the detected objects and scene estimate. Check `model.py` for the configured model backend and expected weight path.
 
-Object detection can miss small, occluded, or out-of-distribution items. A scene estimate based on detected objects can also be wrong when the objects are ambiguous. Treat the result as a visual aid, not as a safety-critical decision.
+## 10. Project Structure
+
+- `app.py`: Streamlit interface
+- `model.py`: model loading and inference
+- `model.pt` and `model.onnx`: model files, if present
+- `requirements.txt`: dependencies
+
+## 11. Results & Demo
+
+Add sample screenshots and report precision/recall or another suitable metric on labelled test images. Scene estimates based on object labels should be treated as heuristic.
+
+## 12. Future Enhancements
+
+- Add a labelled scene-evaluation dataset.
+- Improve performance on small and occluded objects.
+- Show inference latency and model backend.
+- Add tests for missing models and camera failures.
+
+## 13. License
+
+Check model-weight, dataset, and source-code licences before redistribution.
